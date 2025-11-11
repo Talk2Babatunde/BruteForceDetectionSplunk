@@ -1,6 +1,7 @@
 # Automated Brute-Force Login Detection & Email Alerting in Splunk
 
 **Executive summary**
+
 This lab captures Windows Event ID 4625, forwards logs to Splunk via Universal Forwarder, detects brute-force patterns using a 5-minute aggregation SPL, and sends automated email alerts to Gmail. The repository contains: inputs.conf, outputs.conf, savedsearches.conf snippet, the PowerShell simulator, and screenshots demonstrating end-to-end validation.
 
 <img width="1000" height="579" alt="image18" src="https://github.com/user-attachments/assets/af63d8d5-a7e3-484e-bd5d-46aa0409569d" />
