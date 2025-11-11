@@ -6,6 +6,8 @@ This lab captures Windows Event ID 4625, forwards logs to Splunk via Universal F
 
 <img width="997" height="647" alt="image17" src="https://github.com/user-attachments/assets/4645abb9-e7c5-4f1b-9923-a1175eabd4cd" />
 
+Flags accounts or IPs with **more than 5 failed Windows login attempts (EventCode 4625)** within a 5-minute window.
+
 **Outcome / Impact**
 
 Sub-2-minute detection window (configured with 5-minute buckets and fast forwarding)
