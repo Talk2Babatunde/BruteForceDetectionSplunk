@@ -1,5 +1,6 @@
 # Validate Alert Delivery
-<img width="1909" height="858" alt="image9" src="https://github.com/user-attachments/assets/78e5e1f6-3656-4797-ab99-994bf48191ae" />
+<img width="1016" height="650" alt="image12" src="https://github.com/user-attachments/assets/f01ffb3b-7eb7-4326-ba3f-b23ef7d71bda" />
+
 
 # Implementation Details
 
@@ -11,6 +12,7 @@ This demonstrates the email alerting workflow is operational.
 Open Splunk Web and check the 4625 failed login events.
 Confirm that the saved search captured all simulated brute-force attempts.
 Ensures the Splunk indexer is correctly receiving and parsing events from the Universal Forwarder.
+
 
 
 
