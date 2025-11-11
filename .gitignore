@@ -1,0 +1,14 @@
+# Windows / editor
+Thumbs.db
+.DS_Store
+*.log
+*.secret
+# Splunk / credentials
+alert_actions.conf
+auth_password
+# Node / Python
+node_modules/
+__pycache__/
+# Large images (optional — use git-lfs if you must store many large images)
+*.png
+*.jpg
