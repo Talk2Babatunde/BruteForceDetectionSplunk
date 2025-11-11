@@ -1,42 +1,48 @@
 # Automated Brute-Force Login Detection & Email Alerting in Splunk
 
-**Short description**  
-End-to-end Splunk detection pipeline that identifies brute-force login attempts (Windows Event ID 4625), correlates failed logins by user/IP/host, and delivers enriched email alerts to SOC analysts in under 2 minutes.
+**Executive summary**
+This lab captures Windows Event ID 4625, forwards logs to Splunk via Universal Forwarder, detects brute-force patterns using a 5-minute aggregation SPL, and sends automated email alerts to Gmail. The repository contains: inputs.conf, outputs.conf, savedsearches.conf snippet, the PowerShell simulator, and screenshots demonstrating end-to-end validation.
+
 <img width="1000" height="579" alt="image18" src="https://github.com/user-attachments/assets/af63d8d5-a7e3-484e-bd5d-46aa0409569d" />
+
+**Outcome / Impact**
+Sub-2-minute detection window (configured with 5-minute buckets and fast forwarding)
+Automated Gmail alerting for immediate analyst notification
+Demonstrates skills: Windows auditing, Splunk UF config, SPL queries, alert actions, testing via PowerShell
+
+**Objectives**
+
+Capture Windows failed logon events (Event ID 4625) reliably.
+Detect brute-force behavior (multiple failed attempts per account/IP within short timeframe).
+Alert automatically via email so an analyst can respond quickly.
+Create reproducible steps and validation evidence (screenshots, logs).
+
+**Architecture (diagram + explanation)**
+Windows VM (Event Logs)
+ │
+ ▼
+Splunk Universal Forwarder (Windows)
+ │
+ ▼
+Splunk Enterprise (Ubuntu)
+ │
+ ▼
+Email Alert (Gmail)
+
+Explanation: Windows logs are collected locally by the Universal Forwarder, forwarded over TCP (Splunk default port, e.g., 9997) to the Splunk Indexer. A scheduled saved search performs a sliding-window aggregation to spot repeated 4625 events by user/IP and triggers Splunk’s email alert action to Gmail.
+
+**Environment / prerequisites**
+
+Windows VM (Win10/WinServer) with Administrator access
+Ubuntu server running Splunk Enterprise (tested on Splunk 9.x)
+Splunk Universal Forwarder (Windows)
+Gmail account with App Password (for SMTP) or configured SMTP relay
+PowerShell (to simulate failed logons)
 
 **Why this matters**  
 - Built a production-like detection pipeline that cut false alerts by ~60% and improved detection latency to <2 minutes.  
 - Demonstrates hands-on skills in detection engineering, Splunk administration, Windows audit configuration, scripting, and secure alerting.  
 - Ready-to-deploy artifacts (Splunk saved searches, forwarder config, alert templates, test scripts) that accelerate SOC onboarding and detection maturity.
-
----
-
-## Project structure
-BruteForceDetectionSplunk/
-│
-├─ README.md
-├─ screenshots/
-│ ├─ step1_auditpol.png
-│ ├─ step2_forwarder.png
-│ ├─ step3_email.png
-│ ├─ step4_savedsearch.png
-│ ├─ step5_simulator.png
-│ └─ step6_alert.png
-│
-├─ configs/
-│ ├─ inputs.conf
-│ ├─ outputs.conf
-│ ├─ savedsearches.conf
-│ └─ alert_actions.conf (example template — NO real passwords)
-│
-├─ scripts/
-│ └─ brute_force_simulator.ps1
-│
-└─ diagrams/
-└─ architecture.png
-
-
----
 
 ## Key deliverables
 1. **Splunk saved search & alert config** — SPL that correlates repeated EventID 4625 events across a 5-minute window and triggers email alerts.  
@@ -44,8 +50,6 @@ BruteForceDetectionSplunk/
 3. **Email alert action template** — secure, placeholder-based example showing TLS SMTP integration.  
 4. **PowerShell simulator** — reproducible script to generate 4625 events for testing and validation.  
 5. **Architecture diagram & screenshots** — visual evidence of setup, validation, and delivered alerts.
-
----
 
 ## Quick technical summary
 - **Log source**: Windows Security Event Log (4625 = failed logon)  
