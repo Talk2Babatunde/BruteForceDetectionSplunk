@@ -93,8 +93,8 @@ BruteForceDetectionSplunk/
 ---
 
 ## Contact / Links
-- GitHub: `https://github.com/Talk2Babatunde/`  
-- LinkedIn: `www.linkedin.com/in/babatunde-qodri-27716b1a5`  
+- GitHub: https://github.com/Talk2Babatunde/  
+- LinkedIn: www.linkedin.com/in/babatunde-qodri-27716b1a5  
 
 ## Contributing / sanity checklist
 - Do NOT commit real credentials. Use placeholders and reference a secure store.
