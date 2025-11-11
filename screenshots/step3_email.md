@@ -3,6 +3,8 @@
 
 # Restart Splunk
 sudo /opt/splunk/bin/splunk restart
+
 <img width="514" height="332" alt="image14" src="https://github.com/user-attachments/assets/7fb23f12-8854-422b-857d-d9ceba22c15c" />
+
 
 
