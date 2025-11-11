@@ -4,7 +4,7 @@
 End-to-end Splunk detection pipeline that identifies brute-force login attempts (Windows Event ID 4625), correlates failed logins by user/IP/host, and delivers enriched email alerts to SOC analysts in under 2 minutes.
 <img width="1000" height="579" alt="image18" src="https://github.com/user-attachments/assets/af63d8d5-a7e3-484e-bd5d-46aa0409569d" />
 
-**Why this matters ()**  
+**Why this matters**  
 - Built a production-like detection pipeline that cut false alerts by ~60% and improved detection latency to <2 minutes.  
 - Demonstrates hands-on skills in detection engineering, Splunk administration, Windows audit configuration, scripting, and secure alerting.  
 - Ready-to-deploy artifacts (Splunk saved searches, forwarder config, alert templates, test scripts) that accelerate SOC onboarding and detection maturity.
@@ -75,7 +75,7 @@ BruteForceDetectionSplunk/
 
 ---
 
-## Files & purpose (what reviewers will look for)
+## Files & purpose 
 - `configs/inputs.conf` — shows you can collect Windows Security logs (4625).  
 - `configs/outputs.conf` — demonstrates secure forwarding to the indexer.  
 - `configs/savedsearches.conf` — contains the SPL and alert configuration (thresholds, schedule).  
@@ -93,8 +93,8 @@ BruteForceDetectionSplunk/
 ---
 
 ## Contact / Links
-- GitHub: `<your-github-profile>`  
-- LinkedIn: `<your-linkedin>`  
+- GitHub: `https://github.com/Talk2Babatunde/`  
+- LinkedIn: `www.linkedin.com/in/babatunde-qodri-27716b1a5`  
 
 ## Contributing / sanity checklist
 - Do NOT commit real credentials. Use placeholders and reference a secure store.
