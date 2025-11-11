@@ -2,6 +2,7 @@
 
 **Short description**  
 End-to-end Splunk detection pipeline that identifies brute-force login attempts (Windows Event ID 4625), correlates failed logins by user/IP/host, and delivers enriched email alerts to SOC analysts in under 2 minutes.
+<img width="1000" height="579" alt="image18" src="https://github.com/user-attachments/assets/af63d8d5-a7e3-484e-bd5d-46aa0409569d" />
 
 **Why this matters ()**  
 - Built a production-like detection pipeline that cut false alerts by ~60% and improved detection latency to <2 minutes.  
