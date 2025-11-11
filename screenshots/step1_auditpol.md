@@ -1,4 +1,3 @@
-```powershell
 # Enable auditing
 auditpol /set /subcategory:"Account Logon" /success:enable /failure:enable
 auditpol /set /subcategory:"Logon" /success:enable /failure:enable
@@ -11,6 +10,7 @@ auditpol /get /category:"Logon/Logoff"
 <img width="736" height="578" alt="image13" src="https://github.com/user-attachments/assets/157e3b28-7f61-4629-afc5-5a918ad2ff55" />
 
 Figure 1: Auditing enabled for both Success and Failure logon events on Windows to capture 4624 and 4625 logs.
+
 
 
 
