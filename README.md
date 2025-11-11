@@ -7,6 +7,7 @@ This lab captures Windows Event ID 4625, forwards logs to Splunk via Universal F
 <img width="1000" height="579" alt="image18" src="https://github.com/user-attachments/assets/af63d8d5-a7e3-484e-bd5d-46aa0409569d" />
 
 **Outcome / Impact**
+
 Sub-2-minute detection window (configured with 5-minute buckets and fast forwarding)
 Automated Gmail alerting for immediate analyst notification
 Demonstrates skills: Windows auditing, Splunk UF config, SPL queries, alert actions, testing via PowerShell
@@ -19,6 +20,7 @@ Alert automatically via email so an analyst can respond quickly.
 Create reproducible steps and validation evidence (screenshots, logs).
 
 **Architecture (diagram + explanation)**
+
 Windows VM (Event Logs)
  │
  ▼
@@ -41,11 +43,13 @@ Gmail account with App Password (for SMTP) or configured SMTP relay
 PowerShell (to simulate failed logons)
 
 **Why this matters**  
+
 - Built a production-like detection pipeline that cut false alerts by ~60% and improved detection latency to <2 minutes.  
 - Demonstrates hands-on skills in detection engineering, Splunk administration, Windows audit configuration, scripting, and secure alerting.  
 - Ready-to-deploy artifacts (Splunk saved searches, forwarder config, alert templates, test scripts) that accelerate SOC onboarding and detection maturity.
 
 ## Key deliverables
+
 1. **Splunk saved search & alert config** — SPL that correlates repeated EventID 4625 events across a 5-minute window and triggers email alerts.  
 2. **Universal Forwarder config** — minimal `inputs.conf`/`outputs.conf` to collect Windows Security logs and forward to indexer.  
 3. **Email alert action template** — secure, placeholder-based example showing TLS SMTP integration.  
@@ -53,6 +57,7 @@ PowerShell (to simulate failed logons)
 5. **Architecture diagram & screenshots** — visual evidence of setup, validation, and delivered alerts.
 
 ## Quick technical summary
+
 - **Log source**: Windows Security Event Log (4625 = failed logon)  
 - **Forwarder**: Splunk Universal Forwarder (Windows) or Winlogbeat alternative  
 - **Indexer**: Splunk Enterprise on Ubuntu  
@@ -63,6 +68,7 @@ PowerShell (to simulate failed logons)
 ---
 
 ## Installation & usage (high-level)
+
 1. Enable Windows audit policy (Account Logon / Logon success & failure).  
 2. Install Splunk Universal Forwarder and drop `inputs.conf`/`outputs.conf` (see `configs/`). Restart UF.  
 3. Configure Splunk indexer with `alert_actions.conf` (use a secure store or vault for credentials). Restart Splunk.  
@@ -73,6 +79,7 @@ PowerShell (to simulate failed logons)
 ---
 
 ## Results & impact (from lab)
+
 - **Detection latency**: < 2 minutes from ingestion to email alert.  
 - **True positive accuracy**: ≈95% after tuning fields and thresholds.  
 - **Alert noise reduction**: ≈60% through targeted filtering (LogonType, FailureReason, internal IP exclusions).  
@@ -81,6 +88,7 @@ PowerShell (to simulate failed logons)
 ---
 
 ## Files & purpose 
+
 - `configs/inputs.conf` — shows you can collect Windows Security logs (4625).  
 - `configs/outputs.conf` — demonstrates secure forwarding to the indexer.  
 - `configs/savedsearches.conf` — contains the SPL and alert configuration (thresholds, schedule).  
@@ -91,6 +99,7 @@ PowerShell (to simulate failed logons)
 ---
 
 ## Notes & best practices
+
 - **Never commit real credentials** — store SMTP app passwords in a secrets manager or OS-level protected store.  
 - Use environment-specific suppression/whitelists to reduce false positives in production.  
 - Consider webhook/ORchestration integration (SOAR) for automated containment in future iterations.
