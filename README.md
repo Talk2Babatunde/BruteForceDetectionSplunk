@@ -4,7 +4,7 @@
 
 This lab captures Windows Event ID 4625, forwards logs to Splunk via Universal Forwarder, detects brute-force patterns using a 5-minute aggregation SPL, and sends automated email alerts to Gmail. The repository contains: inputs.conf, outputs.conf, savedsearches.conf snippet, the PowerShell simulator, and screenshots demonstrating end-to-end validation.
 
-
+<img width="997" height="647" alt="image17" src="https://github.com/user-attachments/assets/4645abb9-e7c5-4f1b-9923-a1175eabd4cd" />
 
 *Flags accounts or IPs with **more than 5 failed Windows login attempts (EventCode 4625)** within a 5-minute window.*
 
